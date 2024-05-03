@@ -21,3 +21,7 @@ dependencies {
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
 }
+
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
+}
