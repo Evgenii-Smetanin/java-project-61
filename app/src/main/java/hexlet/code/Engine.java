@@ -30,6 +30,7 @@ public class Engine {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer
                         + "'.\nLet's try again, " + playerName + "!");
                 winCounter = 0;
+                return;
             }
         }
 
