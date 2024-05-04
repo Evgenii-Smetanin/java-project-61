@@ -8,7 +8,7 @@ plugins {
 }
 
 application {
-    mainClassName = "hexlet.code.App"
+    mainClass = "hexlet.code.App"
 }
 
 repositories {
@@ -20,7 +20,7 @@ checkstyle {
 }
 
 dependencies {
-    testCompile("junit", "junit", "4.12")
+    testImplementation("junit", "junit", "4.12")
     checkstyle("com.puppycrawl.tools", "checkstyle","10.12.4")
 }
 
