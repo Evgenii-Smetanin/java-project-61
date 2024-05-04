@@ -5,12 +5,9 @@ import java.util.Random;
 public class Even implements Game {
     String correctAnswer;
 
-    public Even() {
-    }
-
     @Override
-    public void showTask() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    public String getTask() {
+        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
     @Override

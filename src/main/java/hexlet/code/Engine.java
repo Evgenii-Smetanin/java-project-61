@@ -17,7 +17,7 @@ public class Engine {
         Random random = new Random();
         int winCounter = 0;
 
-        game.showTask();
+        System.out.println(game.getTask());
 
         while (winCounter < 3) {
             String correctAnswer = game.showQuestion(random);

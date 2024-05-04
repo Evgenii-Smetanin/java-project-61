@@ -5,12 +5,9 @@ import java.util.Random;
 public class Calculator implements Game {
     int correctAnswer;
 
-    public Calculator() {
-    }
-
     @Override
-    public void showTask() {
-        System.out.println("What is the result of the expression?");
+    public String getTask() {
+        return "What is the result of the expression?";
     }
 
     @Override
