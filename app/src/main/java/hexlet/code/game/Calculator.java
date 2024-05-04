@@ -2,12 +2,14 @@ package hexlet.code.game;
 
 import java.util.Random;
 
+import static hexlet.code.game.GameSettings.CALCULATOR_UPPER_BOUND;
+
 public class Calculator {
     private static int correctAnswer;
 
     public static String showQuestion(Random random) {
-        int firstOperand = random.nextInt(25) + 1;
-        int secondOperand = random.nextInt(25) + 1;
+        int firstOperand = random.nextInt(CALCULATOR_UPPER_BOUND) + 1;
+        int secondOperand = random.nextInt(CALCULATOR_UPPER_BOUND) + 1;
         String operation = "";
 
         switch (random.nextInt(3)) {

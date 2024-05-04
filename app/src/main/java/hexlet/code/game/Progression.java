@@ -2,14 +2,18 @@ package hexlet.code.game;
 
 import java.util.Random;
 
+import static hexlet.code.game.GameSettings.PROGRESSION_LENGTH_UPPER_BOUND;
+import static hexlet.code.game.GameSettings.PROGRESSION_START_NUMBER_BOUND;
+import static hexlet.code.game.GameSettings.PROGRESSION_STEP_UPPER_BOUND;
+
 public class Progression {
     private static int correctAnswer;
 
     public static String showQuestion(Random random) {
-        int length = random.nextInt(6) + 5;
+        int length = random.nextInt(PROGRESSION_LENGTH_UPPER_BOUND) + 5;
         int position = random.nextInt(length);
-        int element = random.nextInt(30);
-        int step = random.nextInt(10) + 1;
+        int element = random.nextInt(PROGRESSION_START_NUMBER_BOUND);
+        int step = random.nextInt(PROGRESSION_STEP_UPPER_BOUND) + 1;
 
         StringBuilder sb = new StringBuilder("Question:");
 

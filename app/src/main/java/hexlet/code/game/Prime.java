@@ -2,11 +2,13 @@ package hexlet.code.game;
 
 import java.util.Random;
 
+import static hexlet.code.game.GameSettings.PRIME_UPPER_BOUND;
+
 public class Prime {
     private static String correctAnswer;
 
     public static String showQuestion(Random random) {
-        int question = random.nextInt(99) + 2;
+        int question = random.nextInt(PRIME_UPPER_BOUND) + 2;
         boolean isPrime = true;
 
         for (int i = question - 1; i > 1; i--) {
