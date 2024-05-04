@@ -22,7 +22,7 @@ public class Progression implements Game {
         for (int i = 0; i < length; i++) {
             sb.append(" ");
 
-            if(i > 0) {
+            if (i > 0) {
                 element += step;
             }
 

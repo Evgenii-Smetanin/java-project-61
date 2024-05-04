@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.game.Calculator;
-import hexlet.code.game.Even;
-import hexlet.code.game.GCD;
-import hexlet.code.game.Progression;
+import hexlet.code.game.*;
 
 public class App {
     public static void main(String[] args) {
@@ -13,6 +10,7 @@ public class App {
                 "3 - Calculator\n" +
                 "4 - GCD\n" +
                 "5 - Progression\n" +
+                "6 - Prime\n" +
                 "0 - Exit");
 
         int gameNumber = Cli.getInt();
@@ -38,6 +36,7 @@ public class App {
                 engine.run(new Progression());
                 break;
             case 6:
+                engine.run(new Prime());
                 break;
         }
 
