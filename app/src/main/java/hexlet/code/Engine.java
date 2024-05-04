@@ -1,54 +1,161 @@
 package hexlet.code;
 
-import hexlet.code.game.Game;
+import hexlet.code.game.Calculator;
+import hexlet.code.game.Even;
+import hexlet.code.game.GCD;
+import hexlet.code.game.Prime;
+import hexlet.code.game.Progression;
 
 import java.util.Random;
 
 public class Engine {
-    String playerName;
-    Game game;
+    private static String playerName;
+    private static String task;
+    private static Random random;
 
-    public Engine(String playerName) {
-        this.playerName = playerName;
+    private static String answer;
+    private static int winCounter;
+    private static boolean endFlg;
+
+    static {
+        random = new Random();
+        winCounter = 0;
     }
 
-    public void run(Game game) {
-        this.game = game;
-        Random random = new Random();
-        int winCounter = 0;
+    public static void setPlayerName(String playersName) {
+        playerName = playersName;
+    }
 
-        System.out.println(game.getTask());
+    private static void showRoundResult(String correctAnswer, boolean isCorrect) {
+        if (isCorrect) {
+            System.out.println("Correct!");
+            winCounter++;
 
-        while (winCounter < 3) {
-            String correctAnswer = game.showQuestion(random);
-            String answer = getAnswer();
-
-            if (checkAnswer(answer)) {
-                System.out.println("Correct!");
-                winCounter++;
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer
-                        + "'.\nLet's try again, " + playerName + "!");
-                winCounter = 0;
-                return;
+            if (winCounter == 3) {
+                congrat();
             }
+        } else {
+            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer
+                    + "'.\nLet's try again, " + playerName + "!");
+            endFlg = true;
         }
+    }
 
+    private static void getAnswer() {
+        answer = Cli.getLine();
+        System.out.println("Your answer: " + answer);
+    }
+
+    private static void printTask() {
+        System.out.println(task);
+    }
+
+    private static void congrat() {
         System.out.println("Congratulations, " + playerName + "!");
     }
 
-    private String getAnswer() {
-        String answer = Cli.getLine();
-        System.out.println("Your answer: " + answer);
-        return answer;
+    public static void runCalculator() {
+        task = "What is the result of the expression?";
+        printTask();
+
+        while (winCounter < 3) {
+            String correctAnswer = Calculator.showQuestion(random);
+            getAnswer();
+            showRoundResult(correctAnswer, checkCalculatorAnswer());
+
+            if (endFlg) {
+                break;
+            }
+        }
     }
 
-    private boolean checkAnswer(String answer) {
+    private static boolean checkCalculatorAnswer() {
         try {
-            return game.checkAnswer(answer);
+            return Calculator.checkAnswer(answer);
         } catch (NumberFormatException e) {
             System.out.println("Input a valid number");
-            return checkAnswer(getAnswer());
+            getAnswer();
+            return checkCalculatorAnswer();
+        }
+    }
+
+    public static void runEven() {
+        task = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        printTask();
+
+        while (winCounter < 3) {
+            String correctAnswer = Even.showQuestion(random);
+            getAnswer();
+            showRoundResult(correctAnswer, Even.checkAnswer(answer));
+
+            if (endFlg) {
+                break;
+            }
+        }
+    }
+
+    public static void runGCD() {
+        task = "Find the greatest common divisor of given numbers.";
+        printTask();
+
+        while (winCounter < 3) {
+            String correctAnswer = GCD.showQuestion(random);
+            getAnswer();
+            showRoundResult(correctAnswer, checkGCDAnswer());
+
+            if (endFlg) {
+                break;
+            }
+        }
+    }
+
+    private static boolean checkGCDAnswer() {
+        try {
+            return GCD.checkAnswer(answer);
+        } catch (NumberFormatException e) {
+            System.out.println("Input a valid number");
+            getAnswer();
+            return checkGCDAnswer();
+        }
+    }
+
+    public static void runPrime() {
+        task = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        printTask();
+
+        while (winCounter < 3) {
+            String correctAnswer = Prime.showQuestion(random);
+            getAnswer();
+            showRoundResult(correctAnswer, Prime.checkAnswer(answer));
+
+            if (endFlg) {
+                break;
+            }
+        }
+    }
+
+    public static void runProgression() {
+        task = "What number is missing in the progression?";
+        printTask();
+
+        while (winCounter < 3) {
+            String correctAnswer = Progression.showQuestion(random);
+            getAnswer();
+            showRoundResult(correctAnswer, checkProgressionAnswer());
+
+            if (endFlg) {
+                break;
+            }
+        }
+    }
+
+    private static boolean checkProgressionAnswer() {
+        try {
+            return Progression.checkAnswer(answer);
+        } catch (NumberFormatException e) {
+            System.out.println("Input a valid number");
+            getAnswer();
+            return checkProgressionAnswer();
         }
     }
 }

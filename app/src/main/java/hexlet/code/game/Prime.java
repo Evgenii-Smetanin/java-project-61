@@ -2,16 +2,10 @@ package hexlet.code.game;
 
 import java.util.Random;
 
-public class Prime implements Game {
-    String correctAnswer;
+public class Prime {
+    private static String correctAnswer;
 
-    @Override
-    public String getTask() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    }
-
-    @Override
-    public String showQuestion(Random random) {
+    public static String showQuestion(Random random) {
         int question = random.nextInt(99) + 2;
         boolean isPrime = true;
 
@@ -27,8 +21,7 @@ public class Prime implements Game {
         return correctAnswer;
     }
 
-    @Override
-    public boolean checkAnswer(String answer) {
+    public static boolean checkAnswer(String answer) {
         return answer.equalsIgnoreCase(correctAnswer);
     }
 }

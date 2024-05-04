@@ -2,16 +2,10 @@ package hexlet.code.game;
 
 import java.util.Random;
 
-public class Calculator implements Game {
-    int correctAnswer;
+public class Calculator {
+    private static int correctAnswer;
 
-    @Override
-    public String getTask() {
-        return "What is the result of the expression?";
-    }
-
-    @Override
-    public String showQuestion(Random random) {
+    public static String showQuestion(Random random) {
         int firstOperand = random.nextInt(25) + 1;
         int secondOperand = random.nextInt(25) + 1;
         String operation = "";
@@ -29,14 +23,15 @@ public class Calculator implements Game {
                 operation = "*";
                 correctAnswer = firstOperand * secondOperand;
                 break;
+            default:
+                break;
         }
 
         System.out.println("Question: " + firstOperand + " " + operation + " " + secondOperand);
         return String.valueOf(correctAnswer);
     }
 
-    @Override
-    public boolean checkAnswer(String answer) {
+    public static boolean checkAnswer(String answer) {
         return Integer.parseInt(answer) == correctAnswer;
     }
 }

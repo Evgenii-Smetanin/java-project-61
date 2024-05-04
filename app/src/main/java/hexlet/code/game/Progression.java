@@ -2,16 +2,10 @@ package hexlet.code.game;
 
 import java.util.Random;
 
-public class Progression implements Game {
-    int correctAnswer;
+public class Progression {
+    private static int correctAnswer;
 
-    @Override
-    public String getTask() {
-        return "What number is missing in the progression?";
-    }
-
-    @Override
-    public String showQuestion(Random random) {
+    public static String showQuestion(Random random) {
         int length = random.nextInt(6) + 5;
         int position = random.nextInt(length);
         int element = random.nextInt(30);
@@ -38,8 +32,7 @@ public class Progression implements Game {
         return String.valueOf(correctAnswer);
     }
 
-    @Override
-    public boolean checkAnswer(String answer) {
+    public static boolean checkAnswer(String answer) {
         return Integer.parseInt(answer) == correctAnswer;
     }
 }

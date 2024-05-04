@@ -2,16 +2,10 @@ package hexlet.code.game;
 
 import java.util.Random;
 
-public class Even implements Game {
-    String correctAnswer;
+public class Even {
+    private static String correctAnswer;
 
-    @Override
-    public String getTask() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    }
-
-    @Override
-    public String showQuestion(Random random) {
+    public static String showQuestion(Random random) {
         int question = random.nextInt(99) + 1;
         boolean isEven = question % 2 == 0;
         correctAnswer = isEven ? "yes" : "no";
@@ -19,8 +13,7 @@ public class Even implements Game {
         return correctAnswer;
     }
 
-    @Override
-    public boolean checkAnswer(String answer) {
+    public static boolean checkAnswer(String answer) {
         return answer.equalsIgnoreCase(correctAnswer);
     }
 }

@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.game.*;
-
 public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.\n"
@@ -20,23 +18,25 @@ public class App {
             return;
         }
 
-        Engine engine = new Engine(Cli.greet());
+        Engine.setPlayerName(Cli.greet());
 
         switch (gameNumber) {
             case 2:
-                engine.run(new Even());
+                Engine.runEven();
                 break;
             case 3:
-                engine.run(new Calculator());
+                Engine.runCalculator();
                 break;
             case 4:
-                engine.run(new GCD());
+                Engine.runGCD();
                 break;
             case 5:
-                engine.run(new Progression());
+                Engine.runProgression();
                 break;
             case 6:
-                engine.run(new Prime());
+                Engine.runPrime();
+                break;
+            default:
                 break;
         }
 

@@ -2,16 +2,10 @@ package hexlet.code.game;
 
 import java.util.Random;
 
-public class GCD implements Game {
-    int correctAnswer;
+public class GCD {
+    private static int correctAnswer;
 
-    @Override
-    public String getTask() {
-        return "Find the greatest common divisor of given numbers.";
-    }
-
-    @Override
-    public String showQuestion(Random random) {
+    public static String showQuestion(Random random) {
         int firstOperand = random.nextInt(50) + 1;
         int secondOperand = random.nextInt(50) + 1;
 
@@ -24,12 +18,11 @@ public class GCD implements Game {
         return String.valueOf(correctAnswer);
     }
 
-    @Override
-    public boolean checkAnswer(String answer) {
+    public static boolean checkAnswer(String answer) {
         return Integer.parseInt(answer) == correctAnswer;
     }
 
-    private int gcdByEuclidsAlgorithm(int firstOperand, int secondOperand) {
+    private static int gcdByEuclidsAlgorithm(int firstOperand, int secondOperand) {
         if (secondOperand == 0) {
             return firstOperand;
         }
