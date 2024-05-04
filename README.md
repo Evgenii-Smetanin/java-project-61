@@ -7,4 +7,4 @@
 ![Cкриншот Calculator](app/src/main/resources/Screenshot_2.jpg)
 ![Cкриншот GCD](app/src/main/resources/Screenshot_3.jpg)
 ![Cкриншот Progression](app/src/main/resources/Screenshot_4.jpg)
-![Cкриншот Prime](app/src/main/resources/Scre****enshot_5.jpg)
+![Cкриншот Prime](app/src/main/resources/Screenshot_5.jpg)
