@@ -1,23 +1,25 @@
 package hexlet.code;
 
+import hexlet.code.game.Calculator;
 import hexlet.code.game.Even;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n0 - Exit");
+        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n3 - Calculator\n0 - Exit");
         int gameNumber = Cli.getInt();
 
         if (gameNumber == 0 || gameNumber > 6) {
             return;
         }
 
-        String playerName = greet();
+        Engine engine = new Engine(Cli.greet());
 
         switch (gameNumber) {
             case 2:
-                Even.run(playerName);
+                engine.run(new Even());
                 break;
             case 3:
+                engine.run(new Calculator());
                 break;
             case 4:
                 break;
@@ -28,12 +30,5 @@ public class App {
         }
 
         Cli.close();
-    }
-
-    public static String greet() {
-        System.out.println("Welcome to the Brain Games!\nMay I have your name?");
-        String playerName = Cli.getLine();
-        System.out.println("Hello, " + playerName + "!");
-        return playerName;
     }
 }

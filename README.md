@@ -3,4 +3,5 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Evgenii-Smetanin/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Evgenii-Smetanin/java-project-61/actions)
 
-![Cкриншот с примером запуска игры](src/main/resources/Screenshot.jpg)
+![Cкриншот Even](src/main/resources/Screenshot.jpg)
+![Cкриншот Calculator](src/main/resources/Screenshot_2.jpg)
