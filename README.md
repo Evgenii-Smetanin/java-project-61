@@ -6,3 +6,4 @@
 ![Cкриншот Even](src/main/resources/Screenshot.jpg)
 ![Cкриншот Calculator](src/main/resources/Screenshot_2.jpg)
 ![Cкриншот GCD](src/main/resources/Screenshot_3.jpg)
+![Cкриншот Progression](src/main/resources/Screenshot_4.jpg)
