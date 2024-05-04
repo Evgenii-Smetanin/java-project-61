@@ -29,7 +29,7 @@ public class Even {
                 continue;
             }
 
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.\n Let's try again, " + playerName + "!");
             winCounter = 0;
         }
 

@@ -17,7 +17,7 @@ public class Cli {
         try {
             return Integer.parseInt(sc.nextLine());
         } catch (NumberFormatException e) {
-            System.out.println("Please enter a valid game number");
+            System.out.println("Please enter a valid number");
             return getInt();
         }
     }
