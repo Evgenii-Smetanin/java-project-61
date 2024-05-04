@@ -5,12 +5,13 @@ import java.util.Random;
 import static hexlet.code.game.GameSettings.PROGRESSION_LENGTH_UPPER_BOUND;
 import static hexlet.code.game.GameSettings.PROGRESSION_START_NUMBER_BOUND;
 import static hexlet.code.game.GameSettings.PROGRESSION_STEP_UPPER_BOUND;
+import static hexlet.code.game.GameSettings.PROGRESSION_MIN_LENGTH;
 
 public class Progression {
     private static int correctAnswer;
 
     public static String showQuestion(Random random) {
-        int length = random.nextInt(PROGRESSION_LENGTH_UPPER_BOUND) + 5;
+        int length = random.nextInt(PROGRESSION_LENGTH_UPPER_BOUND) + PROGRESSION_MIN_LENGTH;
         int position = random.nextInt(length);
         int element = random.nextInt(PROGRESSION_START_NUMBER_BOUND);
         int step = random.nextInt(PROGRESSION_STEP_UPPER_BOUND) + 1;

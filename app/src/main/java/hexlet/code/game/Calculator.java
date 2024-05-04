@@ -5,6 +5,7 @@ import java.util.Random;
 import static hexlet.code.game.GameSettings.CALCULATOR_UPPER_BOUND;
 
 public class Calculator {
+    private static final int OPERATIONS = 3;
     private static int correctAnswer;
 
     public static String showQuestion(Random random) {
@@ -12,7 +13,7 @@ public class Calculator {
         int secondOperand = random.nextInt(CALCULATOR_UPPER_BOUND) + 1;
         String operation = "";
 
-        switch (random.nextInt(3)) {
+        switch (random.nextInt(OPERATIONS)) {
             case 0:
                 operation = "+";
                 correctAnswer = firstOperand + secondOperand;

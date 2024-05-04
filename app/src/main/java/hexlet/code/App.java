@@ -1,6 +1,12 @@
 package hexlet.code;
 
 public class App {
+    private static final int EVEN = 2;
+    private static final int CALCULATOR = 3;
+    private static final int GCD = 4;
+    private static final int PROGRESSION = 5;
+    private static final int PRIME = 6;
+
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
@@ -21,19 +27,19 @@ public class App {
         Engine.setPlayerName(Cli.greet());
 
         switch (gameNumber) {
-            case 2:
+            case EVEN:
                 Engine.runEven();
                 break;
-            case 3:
+            case CALCULATOR:
                 Engine.runCalculator();
                 break;
-            case 4:
+            case GCD:
                 Engine.runGCD();
                 break;
-            case 5:
+            case PROGRESSION:
                 Engine.runProgression();
                 break;
-            case 6:
+            case PRIME:
                 Engine.runPrime();
                 break;
             default:

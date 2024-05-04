@@ -9,6 +9,7 @@ import hexlet.code.game.Progression;
 import java.util.Random;
 
 public class Engine {
+    private static final int ROUNDS = 3;
     private static String playerName;
     private static String task;
     private static Random random;
@@ -31,7 +32,7 @@ public class Engine {
             System.out.println("Correct!");
             winCounter++;
 
-            if (winCounter == 3) {
+            if (winCounter == ROUNDS) {
                 congrat();
             }
         } else {
@@ -58,7 +59,7 @@ public class Engine {
         task = "What is the result of the expression?";
         printTask();
 
-        while (winCounter < 3) {
+        while (winCounter < ROUNDS) {
             String correctAnswer = Calculator.showQuestion(random);
             getAnswer();
             showRoundResult(correctAnswer, checkCalculatorAnswer());
@@ -83,7 +84,7 @@ public class Engine {
         task = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         printTask();
 
-        while (winCounter < 3) {
+        while (winCounter < ROUNDS) {
             String correctAnswer = Even.showQuestion(random);
             getAnswer();
             showRoundResult(correctAnswer, Even.checkAnswer(answer));
@@ -98,7 +99,7 @@ public class Engine {
         task = "Find the greatest common divisor of given numbers.";
         printTask();
 
-        while (winCounter < 3) {
+        while (winCounter < ROUNDS) {
             String correctAnswer = GCD.showQuestion(random);
             getAnswer();
             showRoundResult(correctAnswer, checkGCDAnswer());
@@ -123,7 +124,7 @@ public class Engine {
         task = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         printTask();
 
-        while (winCounter < 3) {
+        while (winCounter < ROUNDS) {
             String correctAnswer = Prime.showQuestion(random);
             getAnswer();
             showRoundResult(correctAnswer, Prime.checkAnswer(answer));
@@ -138,7 +139,7 @@ public class Engine {
         task = "What number is missing in the progression?";
         printTask();
 
-        while (winCounter < 3) {
+        while (winCounter < ROUNDS) {
             String correctAnswer = Progression.showQuestion(random);
             getAnswer();
             showRoundResult(correctAnswer, checkProgressionAnswer());
