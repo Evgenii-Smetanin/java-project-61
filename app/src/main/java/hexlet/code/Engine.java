@@ -7,6 +7,7 @@ import hexlet.code.game.Prime;
 import hexlet.code.game.Progression;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Engine {
     private static final int ROUNDS = 3;
@@ -17,14 +18,12 @@ public class Engine {
     private static String answer;
     private static int winCounter;
     private static boolean endFlg;
+    private static Scanner sc;
 
     static {
+        sc = new Scanner(System.in);
         random = new Random();
         winCounter = 0;
-    }
-
-    public static void setPlayerName(String playersName) {
-        playerName = playersName;
     }
 
     private static void showRoundResult(String correctAnswer, boolean isCorrect) {
@@ -43,7 +42,7 @@ public class Engine {
     }
 
     private static void getAnswer() {
-        answer = Cli.getLine();
+        answer = sc.nextLine();
         System.out.println("Your answer: " + answer);
     }
 
@@ -56,6 +55,7 @@ public class Engine {
     }
 
     public static void runCalculator() {
+        greet();
         task = "What is the result of the expression?";
         printTask();
 
@@ -81,6 +81,7 @@ public class Engine {
     }
 
     public static void runEven() {
+        greet();
         task = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         printTask();
 
@@ -96,6 +97,7 @@ public class Engine {
     }
 
     public static void runGCD() {
+        greet();
         task = "Find the greatest common divisor of given numbers.";
         printTask();
 
@@ -121,6 +123,7 @@ public class Engine {
     }
 
     public static void runPrime() {
+        greet();
         task = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         printTask();
 
@@ -136,6 +139,7 @@ public class Engine {
     }
 
     public static void runProgression() {
+        greet();
         task = "What number is missing in the progression?";
         printTask();
 
@@ -157,6 +161,21 @@ public class Engine {
             System.out.println("Input a valid number");
             getAnswer();
             return checkProgressionAnswer();
+        }
+    }
+
+    public static void greet() {
+        System.out.println("Welcome to the Brain Games!\nMay I have your name?");
+        playerName = sc.nextLine();
+        System.out.println("Hello, " + playerName + "!");
+    }
+
+    public static int getInt() {
+        try {
+            return Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter a valid number");
+            return getInt();
         }
     }
 }

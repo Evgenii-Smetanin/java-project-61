@@ -1,7 +1,6 @@
 package hexlet.code;
 
 public class App {
-    private static final int OPTIONS_NUMBER = 6;
     private static final int GREET = 1;
     private static final int EXIT = 0;
     private static final int EVEN = 2;
@@ -11,6 +10,7 @@ public class App {
     private static final int PRIME = 6;
 
     public static void main(String[] args) {
+
         System.out.println("Please enter the game number and press Enter.\n"
                 + GREET + " - Greet\n"
                 + EVEN + " - Even\n"
@@ -20,16 +20,14 @@ public class App {
                 + PRIME + " - Prime\n"
                 + EXIT + " - Exit");
 
-        int gameNumber = Cli.getInt();
+        int gameNumber = Engine.getInt();
         System.out.println("Your choice: " + gameNumber);
 
-        if (gameNumber == EXIT || gameNumber > OPTIONS_NUMBER) {
-            return;
-        }
-
-        Engine.setPlayerName(Cli.greet());
-
         switch (gameNumber) {
+            case EXIT:
+                break;
+            case GREET:
+                Cli.greet();
             case EVEN:
                 Engine.runEven();
                 break;
@@ -48,7 +46,5 @@ public class App {
             default:
                 break;
         }
-
-        Cli.close();
     }
 }
