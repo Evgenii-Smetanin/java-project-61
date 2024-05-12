@@ -2,7 +2,6 @@ group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
 plugins {
-    java
     application
     checkstyle
 }
@@ -20,7 +19,6 @@ checkstyle {
 }
 
 dependencies {
-    testImplementation("junit", "junit", "4.12")
     checkstyle("com.puppycrawl.tools", "checkstyle","10.12.4")
 }
 
