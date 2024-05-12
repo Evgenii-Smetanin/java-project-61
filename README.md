@@ -3,7 +3,7 @@
 ##### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Evgenii-Smetanin/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Evgenii-Smetanin/java-project-61/actions)
 
-##Проект "Игры разума"
+## Проект "Игры разума"
 Проект содержит пять консольных игр:
 - "Проверка на чётность", 
 - "Калькулятор",
