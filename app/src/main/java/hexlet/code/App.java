@@ -11,7 +11,7 @@ public class App {
     private static final int EXIT = 0;
     private static final int EVEN = 2;
     private static final int CALCULATOR = 3;
-    private static final int Gcd = 4;
+    private static final int GCD_NUM = 4;
     private static final int PROGRESSION = 5;
     private static final int PRIME = 6;
 
@@ -21,7 +21,7 @@ public class App {
                 + GREET + " - Greet\n"
                 + EVEN + " - Even\n"
                 + CALCULATOR + " - Calculator\n"
-                + Gcd + " - GCD\n"
+                + GCD_NUM + " - GCD\n"
                 + PROGRESSION + " - Progression\n"
                 + PRIME + " - Prime\n"
                 + EXIT + " - Exit");
@@ -41,7 +41,7 @@ public class App {
             case CALCULATOR:
                 Calculator.run();
                 break;
-            case Gcd:
+            case GCD_NUM:
                 GCD.run();
                 break;
             case PROGRESSION:
