@@ -1,8 +1,18 @@
-### Maintainability:
+##### Maintainability:
 <a href="https://codeclimate.com/github/Evgenii-Smetanin/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/11860e1f6a28b08c6728/maintainability" /></a>
-### Hexlet tests and linter status:
+##### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Evgenii-Smetanin/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Evgenii-Smetanin/java-project-61/actions)
-#####вывод строки "Your choice..." добавлен c GCD, поэтому на скриншотах до GCD ее нет
+#Проект "Игры разума"
+Проект содержит пять консольных игр:
+- "Проверка на чётность", 
+- "Калькулятор",
+- "НОД",
+- "Арифметическая прогрессия",
+- "Простое ли число?".
+
+Для выбора игры неообходимо **ввести ее номер** в соответствии с нумерацией игр в "меню".
+
+*вывод строки "Your choice..." добавлен c GCD, поэтому на скриншотах до GCD ее нет*
 ![Cкриншот Even](app/src/main/resources/Screenshot.jpg)
 ![Cкриншот Calculator](app/src/main/resources/Screenshot_2.jpg)
 ![Cкриншот GCD](app/src/main/resources/Screenshot_3.jpg)
