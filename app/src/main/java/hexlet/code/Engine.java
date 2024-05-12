@@ -1,166 +1,40 @@
 package hexlet.code;
 
-import hexlet.code.game.Calculator;
-import hexlet.code.game.Even;
-import hexlet.code.game.GCD;
-import hexlet.code.game.Prime;
-import hexlet.code.game.Progression;
-
-import java.util.Random;
 import java.util.Scanner;
 
-public class Engine {
-    private static final int ROUNDS = 3;
-    private static String playerName;
-    private static String task;
-    private static Random random;
+import static hexlet.code.game.GameSettings.ROUNDS;
+import static java.lang.System.out;
 
-    private static String answer;
-    private static int winCounter;
-    private static boolean endFlg;
+public class Engine {
+    private static String playerName;
+    private static int round;
     private static Scanner sc;
 
     static {
         sc = new Scanner(System.in);
-        random = new Random();
-        winCounter = 0;
+        round = 0;
     }
 
-    private static void showRoundResult(String correctAnswer, boolean isCorrect) {
-        if (isCorrect) {
-            System.out.println("Correct!");
-            winCounter++;
-
-            if (winCounter == ROUNDS) {
-                congrat();
-            }
-        } else {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer
-                    + "'.\nLet's try again, " + playerName + "!");
-            endFlg = true;
-        }
-    }
-
-    private static void getAnswer() {
-        answer = sc.nextLine();
-        System.out.println("Your answer: " + answer);
-    }
-
-    private static void printTask() {
-        System.out.println(task);
-    }
-
-    private static void congrat() {
-        System.out.println("Congratulations, " + playerName + "!");
-    }
-
-    public static void runCalculator() {
+    public static void run(String task, String[][] questionsAnswers) {
         greet();
-        task = "What is the result of the expression?";
-        printTask();
+        out.println(task);
+        while (round < ROUNDS) {
+            out.println("Question: " + questionsAnswers[round][0]);
+            String answer = sc.nextLine();
+            out.println("Your answer: " + answer);
 
-        while (winCounter < ROUNDS) {
-            String correctAnswer = Calculator.showQuestion(random);
-            getAnswer();
-            showRoundResult(correctAnswer, checkCalculatorAnswer());
+            if (answer.equals(questionsAnswers[round][1])) {
+                out.println("Correct!");
+                round++;
 
-            if (endFlg) {
+                if (round == ROUNDS) {
+                    out.println("Congratulations, " + playerName + "!");
+                }
+            } else {
+                out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + questionsAnswers[round][1]
+                        + "'.\nLet's try again, " + playerName + "!");
                 break;
             }
-        }
-    }
-
-    private static boolean checkCalculatorAnswer() {
-        try {
-            return Calculator.checkAnswer(answer);
-        } catch (NumberFormatException e) {
-            System.out.println("Input a valid number");
-            getAnswer();
-            return checkCalculatorAnswer();
-        }
-    }
-
-    public static void runEven() {
-        greet();
-        task = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        printTask();
-
-        while (winCounter < ROUNDS) {
-            String correctAnswer = Even.showQuestion(random);
-            getAnswer();
-            showRoundResult(correctAnswer, Even.checkAnswer(answer));
-
-            if (endFlg) {
-                break;
-            }
-        }
-    }
-
-    public static void runGCD() {
-        greet();
-        task = "Find the greatest common divisor of given numbers.";
-        printTask();
-
-        while (winCounter < ROUNDS) {
-            String correctAnswer = GCD.showQuestion(random);
-            getAnswer();
-            showRoundResult(correctAnswer, checkGCDAnswer());
-
-            if (endFlg) {
-                break;
-            }
-        }
-    }
-
-    private static boolean checkGCDAnswer() {
-        try {
-            return GCD.checkAnswer(answer);
-        } catch (NumberFormatException e) {
-            System.out.println("Input a valid number");
-            getAnswer();
-            return checkGCDAnswer();
-        }
-    }
-
-    public static void runPrime() {
-        greet();
-        task = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        printTask();
-
-        while (winCounter < ROUNDS) {
-            String correctAnswer = Prime.showQuestion(random);
-            getAnswer();
-            showRoundResult(correctAnswer, Prime.checkAnswer(answer));
-
-            if (endFlg) {
-                break;
-            }
-        }
-    }
-
-    public static void runProgression() {
-        greet();
-        task = "What number is missing in the progression?";
-        printTask();
-
-        while (winCounter < ROUNDS) {
-            String correctAnswer = Progression.showQuestion(random);
-            getAnswer();
-            showRoundResult(correctAnswer, checkProgressionAnswer());
-
-            if (endFlg) {
-                break;
-            }
-        }
-    }
-
-    private static boolean checkProgressionAnswer() {
-        try {
-            return Progression.checkAnswer(answer);
-        } catch (NumberFormatException e) {
-            System.out.println("Input a valid number");
-            getAnswer();
-            return checkProgressionAnswer();
         }
     }
 

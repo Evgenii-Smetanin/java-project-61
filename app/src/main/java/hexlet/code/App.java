@@ -1,11 +1,17 @@
 package hexlet.code;
 
+import hexlet.code.game.Calculator;
+import hexlet.code.game.Even;
+import hexlet.code.game.GCD;
+import hexlet.code.game.Prime;
+import hexlet.code.game.Progression;
+
 public class App {
     private static final int GREET = 1;
     private static final int EXIT = 0;
     private static final int EVEN = 2;
     private static final int CALCULATOR = 3;
-    private static final int GCD = 4;
+    private static final int Gcd = 4;
     private static final int PROGRESSION = 5;
     private static final int PRIME = 6;
 
@@ -15,7 +21,7 @@ public class App {
                 + GREET + " - Greet\n"
                 + EVEN + " - Even\n"
                 + CALCULATOR + " - Calculator\n"
-                + GCD + " - GCD\n"
+                + Gcd + " - GCD\n"
                 + PROGRESSION + " - Progression\n"
                 + PRIME + " - Prime\n"
                 + EXIT + " - Exit");
@@ -28,20 +34,21 @@ public class App {
                 break;
             case GREET:
                 Cli.greet();
+                break;
             case EVEN:
-                Engine.runEven();
+                Even.run();
                 break;
             case CALCULATOR:
-                Engine.runCalculator();
+                Calculator.run();
                 break;
-            case GCD:
-                Engine.runGCD();
+            case Gcd:
+                GCD.run();
                 break;
             case PROGRESSION:
-                Engine.runProgression();
+                Progression.run();
                 break;
             case PRIME:
-                Engine.runPrime();
+                Prime.run();
                 break;
             default:
                 break;

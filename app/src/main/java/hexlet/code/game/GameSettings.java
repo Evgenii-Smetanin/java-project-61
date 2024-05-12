@@ -1,6 +1,7 @@
 package hexlet.code.game;
 
 public final class GameSettings {
+    public static final int ROUNDS = 3;
     public static final int PRIME_UPPER_BOUND = 99;
     public static final int GCD_UPPER_BOUND = 99;
     public static final int EVEN_UPPER_BOUND = 99;
