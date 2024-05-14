@@ -18,30 +18,40 @@ public class Calculator {
         for (int i = 0; i < questionsAnswers.length; i++) {
             int firstOperand = random.nextInt(CALCULATOR_UPPER_BOUND) + 1;
             int secondOperand = random.nextInt(CALCULATOR_UPPER_BOUND) + 1;
-            String operation = "";
-            int correctAnswer = 0;
+            int operationNum = random.nextInt(OPERATIONS);
+            String operation;
 
-            switch (random.nextInt(OPERATIONS)) {
+            switch (operationNum) {
                 case 0:
                     operation = "+";
-                    correctAnswer = firstOperand + secondOperand;
                     break;
                 case 1:
                     operation = "-";
-                    correctAnswer = firstOperand - secondOperand;
                     break;
                 case 2:
                     operation = "*";
-                    correctAnswer = firstOperand * secondOperand;
                     break;
                 default:
-                    break;
+                    throw new IllegalArgumentException("Illegal operation number: '" + operationNum + "', Operation must be between 0-2 inclusive");
             }
 
             questionsAnswers[i][0] = firstOperand + " " + operation + " " + secondOperand;
-            questionsAnswers[i][1] = String.valueOf(correctAnswer);
+            questionsAnswers[i][1] = String.valueOf(calculateExpressionResult(firstOperand, secondOperand, operation));
         }
 
         Engine.run(TASK, questionsAnswers);
+    }
+
+    public static int calculateExpressionResult(int a, int b, String operation) {
+        switch (operation) {
+            case "+":
+                return a + b;
+            case "-":
+                return a - b;
+            case "*":
+                return a * b;
+            default:
+                throw new IllegalArgumentException("Illegal operation: '" + operation + "', Operation must equal '+', '-' or '*'");
+        }
     }
 }
