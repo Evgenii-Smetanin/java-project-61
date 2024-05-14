@@ -6,6 +6,8 @@ import hexlet.code.game.GCD;
 import hexlet.code.game.Prime;
 import hexlet.code.game.Progression;
 
+import java.util.Scanner;
+
 public class App {
     private static final int GREET = 1;
     private static final int EXIT = 0;
@@ -14,8 +16,9 @@ public class App {
     private static final int GCD_NUM = 4;
     private static final int PROGRESSION = 5;
     private static final int PRIME = 6;
+    private static final Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IncorrectGameNumberException {
 
         System.out.println("Please enter the game number and press Enter.\n"
                 + GREET + " - Greet\n"
@@ -26,7 +29,7 @@ public class App {
                 + PRIME + " - Prime\n"
                 + EXIT + " - Exit");
 
-        int gameNumber = Engine.getInt();
+        int gameNumber = getInt();
         System.out.println("Your choice: " + gameNumber);
 
         switch (gameNumber) {
@@ -51,7 +54,18 @@ public class App {
                 Prime.run();
                 break;
             default:
-                break;
+                throw new IncorrectGameNumberException("Unknown game number: " + gameNumber);
+        }
+
+        sc.close();
+    }
+
+    public static int getInt() {
+        try {
+            return Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Please enter a valid number");
+            return getInt();
         }
     }
 }
