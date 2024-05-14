@@ -32,7 +32,8 @@ public class Calculator {
                     operation = "*";
                     break;
                 default:
-                    throw new IllegalArgumentException("Illegal operation number: '" + operationNum + "', Operation must be between 0-2 inclusive");
+                    throw new IllegalArgumentException("Illegal operation number: '" + operationNum
+                            + "', Operation must be between 0-2 inclusive");
             }
 
             questionsAnswers[i][0] = firstOperand + " " + operation + " " + secondOperand;
@@ -51,7 +52,8 @@ public class Calculator {
             case "*":
                 return a * b;
             default:
-                throw new IllegalArgumentException("Illegal operation: '" + operation + "', Operation must equal '+', '-' or '*'");
+                throw new IllegalArgumentException("Illegal operation: '" + operation
+                        + "', Operation must equal '+', '-' or '*'");
         }
     }
 }

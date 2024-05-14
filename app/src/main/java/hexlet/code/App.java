@@ -16,7 +16,7 @@ public class App {
     private static final int GCD_NUM = 4;
     private static final int PROGRESSION = 5;
     private static final int PRIME = 6;
-    private static final Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws IncorrectGameNumberException {
 
