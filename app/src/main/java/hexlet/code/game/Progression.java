@@ -4,9 +4,10 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
+import static hexlet.code.Engine.ROUNDS;
+
 public class Progression {
     private static final String TASK = "What number is missing in the progression?";
-    private static final int ROUNDS = 3;
     private static final int PROGRESSION_START_NUMBER_BOUND = 30;
     private static final int PROGRESSION_STEP_UPPER_BOUND = 10;
     private static final int PROGRESSION_LENGTH_UPPER_BOUND = 6;

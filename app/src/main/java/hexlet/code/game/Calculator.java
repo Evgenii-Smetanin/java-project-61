@@ -4,9 +4,10 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
+import static hexlet.code.Engine.ROUNDS;
+
 public class Calculator {
     private static final String TASK = "What is the result of the expression?";
-    private static final int ROUNDS = 3;
     private static final int CALCULATOR_UPPER_BOUND = 25;
     private static final int OPERATIONS = 3;
 

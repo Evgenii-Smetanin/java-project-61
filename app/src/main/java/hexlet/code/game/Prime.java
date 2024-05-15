@@ -4,9 +4,10 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
+import static hexlet.code.Engine.ROUNDS;
+
 public class Prime {
     private static final String TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static final int ROUNDS = 3;
     private static final int PRIME_UPPER_BOUND = 99;
 
     public static void run() {
