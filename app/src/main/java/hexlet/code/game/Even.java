@@ -4,11 +4,10 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
-import static hexlet.code.game.GameSettings.EVEN_UPPER_BOUND;
-import static hexlet.code.game.GameSettings.ROUNDS;
-
 public class Even {
     private static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int ROUNDS = 3;
+    private static final int EVEN_UPPER_BOUND = 99;
 
     public static void run() {
         Random random = new Random();

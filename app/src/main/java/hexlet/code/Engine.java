@@ -2,10 +2,10 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.game.GameSettings.ROUNDS;
 import static java.lang.System.out;
 
 public class Engine {
+    private static final int ROUNDS = 3;
     private static String playerName;
     private static int round;
     private static Scanner sc;

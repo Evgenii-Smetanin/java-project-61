@@ -4,11 +4,10 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
-import static hexlet.code.game.GameSettings.GCD_UPPER_BOUND;
-import static hexlet.code.game.GameSettings.ROUNDS;
-
 public class GCD {
     private static final String TASK = "Find the greatest common divisor of given numbers.";
+    private static final int ROUNDS = 3;
+    private static final int GCD_UPPER_BOUND = 99;
 
     public static void run() {
         Random random = new Random();
