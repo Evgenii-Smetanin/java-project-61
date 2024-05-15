@@ -43,7 +43,7 @@ public class Calculator {
         Engine.run(TASK, questionsAnswers);
     }
 
-    public static int calculateExpressionResult(int a, int b, String operation) {
+    private static int calculateExpressionResult(int a, int b, String operation) {
         switch (operation) {
             case "+":
                 return a + b;

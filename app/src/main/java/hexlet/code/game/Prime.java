@@ -16,19 +16,20 @@ public class Prime {
 
         for (int i = 0; i < questionsAnswers.length; i++) {
             int question = random.nextInt(PRIME_UPPER_BOUND) + 2;
-            boolean isPrime = true;
-
-            for (int j = question - 1; j > 1; j--) {
-                if (question % j == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-
             questionsAnswers[i][0] = String.valueOf(question);
-            questionsAnswers[i][1] = isPrime ? "yes" : "no";
+            questionsAnswers[i][1] = checkNumberIsPrime(question) ? "yes" : "no";
         }
 
         Engine.run(TASK, questionsAnswers);
+    }
+
+    private static boolean checkNumberIsPrime(int number) {
+        for (int j = number - 1; j > 1; j--) {
+            if (number % j == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
