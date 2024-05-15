@@ -10,6 +10,10 @@ public class Calculator {
     private static final int CALCULATOR_UPPER_BOUND = 25;
     private static final int OPERATIONS = 3;
 
+    private static final int SUM = 1;
+    private static final int SUBSTRACT = 2;
+    private static final int MULTIPLY = 3;
+
     public static void run() {
         String[][] questionsAnswers = new String[ROUNDS][2];
 
@@ -20,13 +24,13 @@ public class Calculator {
             String operation;
 
             switch (operationNum) {
-                case 1:
+                case SUM:
                     operation = "+";
                     break;
-                case 2:
+                case SUBSTRACT:
                     operation = "-";
                     break;
-                case 3:
+                case MULTIPLY:
                     operation = "*";
                     break;
                 default:
