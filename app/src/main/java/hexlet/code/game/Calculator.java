@@ -1,8 +1,7 @@
 package hexlet.code.game;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.RandomUtils;
 
 import static hexlet.code.Engine.ROUNDS;
 
@@ -12,23 +11,22 @@ public class Calculator {
     private static final int OPERATIONS = 3;
 
     public static void run() {
-        Random random = new Random();
         String[][] questionsAnswers = new String[ROUNDS][2];
 
         for (int i = 0; i < questionsAnswers.length; i++) {
-            int firstOperand = random.nextInt(CALCULATOR_UPPER_BOUND) + 1;
-            int secondOperand = random.nextInt(CALCULATOR_UPPER_BOUND) + 1;
-            int operationNum = random.nextInt(OPERATIONS);
+            int firstOperand = RandomUtils.generateNumber(1, CALCULATOR_UPPER_BOUND);
+            int secondOperand = RandomUtils.generateNumber(1, CALCULATOR_UPPER_BOUND);
+            int operationNum = RandomUtils.generateNumber(1, OPERATIONS);
             String operation;
 
             switch (operationNum) {
-                case 0:
+                case 1:
                     operation = "+";
                     break;
-                case 1:
+                case 2:
                     operation = "-";
                     break;
-                case 2:
+                case 3:
                     operation = "*";
                     break;
                 default:

@@ -1,8 +1,7 @@
 package hexlet.code.game;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.RandomUtils;
 
 import static hexlet.code.Engine.ROUNDS;
 
@@ -11,12 +10,11 @@ public class GCD {
     private static final int GCD_UPPER_BOUND = 99;
 
     public static void run() {
-        Random random = new Random();
         String[][] questionsAnswers = new String[ROUNDS][2];
 
         for (int i = 0; i < questionsAnswers.length; i++) {
-            int firstOperand = random.nextInt(GCD_UPPER_BOUND) + 1;
-            int secondOperand = random.nextInt(GCD_UPPER_BOUND) + 1;
+            int firstOperand = RandomUtils.generateNumber(1, GCD_UPPER_BOUND);
+            int secondOperand = RandomUtils.generateNumber(1, GCD_UPPER_BOUND);
             int correctAnswer = firstOperand > secondOperand
                     ? gcdByEuclidsAlgorithm(firstOperand, secondOperand)
                     : gcdByEuclidsAlgorithm(secondOperand, firstOperand);

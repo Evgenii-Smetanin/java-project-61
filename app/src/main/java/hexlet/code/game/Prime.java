@@ -1,8 +1,7 @@
 package hexlet.code.game;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.RandomUtils;
 
 import static hexlet.code.Engine.ROUNDS;
 
@@ -11,11 +10,10 @@ public class Prime {
     private static final int PRIME_UPPER_BOUND = 99;
 
     public static void run() {
-        Random random = new Random();
         String[][] questionsAnswers = new String[ROUNDS][2];
 
         for (int i = 0; i < questionsAnswers.length; i++) {
-            int question = random.nextInt(PRIME_UPPER_BOUND) + 2;
+            int question = RandomUtils.generateNumber(2, PRIME_UPPER_BOUND);
             questionsAnswers[i][0] = String.valueOf(question);
             questionsAnswers[i][1] = checkNumberIsPrime(question) ? "yes" : "no";
         }

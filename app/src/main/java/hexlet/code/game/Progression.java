@@ -1,8 +1,7 @@
 package hexlet.code.game;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.RandomUtils;
 
 import static hexlet.code.Engine.ROUNDS;
 
@@ -10,18 +9,17 @@ public class Progression {
     private static final String TASK = "What number is missing in the progression?";
     private static final int PROGRESSION_START_NUMBER_BOUND = 30;
     private static final int PROGRESSION_STEP_UPPER_BOUND = 10;
-    private static final int PROGRESSION_LENGTH_UPPER_BOUND = 6;
+    private static final int PROGRESSION_LENGTH_UPPER_BOUND = 10;
     private static final int PROGRESSION_MIN_LENGTH = 5;
 
     public static void run() {
-        Random random = new Random();
         String[][] questionsAnswers = new String[ROUNDS][2];
 
         for (int i = 0; i < questionsAnswers.length; i++) {
-            int length = random.nextInt(PROGRESSION_LENGTH_UPPER_BOUND) + PROGRESSION_MIN_LENGTH;
-            int hiddenIndex = random.nextInt(length);
-            int first = random.nextInt(PROGRESSION_START_NUMBER_BOUND);
-            int step = random.nextInt(PROGRESSION_STEP_UPPER_BOUND) + 1;
+            int length = RandomUtils.generateNumber(PROGRESSION_MIN_LENGTH, PROGRESSION_LENGTH_UPPER_BOUND);
+            int hiddenIndex = RandomUtils.generateNumber(0, length - 1);
+            int first = RandomUtils.generateNumber(0, PROGRESSION_START_NUMBER_BOUND);
+            int step = RandomUtils.generateNumber(1, PROGRESSION_STEP_UPPER_BOUND);
 
             String[] progression = makeProgression(first, step, length);
             questionsAnswers[i][1] = progression[hiddenIndex];
