@@ -19,32 +19,26 @@ public class Progression {
 
         for (int i = 0; i < questionsAnswers.length; i++) {
             int length = random.nextInt(PROGRESSION_LENGTH_UPPER_BOUND) + PROGRESSION_MIN_LENGTH;
-            int position = random.nextInt(length);
-            int element = random.nextInt(PROGRESSION_START_NUMBER_BOUND);
+            int hiddenIndex = random.nextInt(length);
+            int first = random.nextInt(PROGRESSION_START_NUMBER_BOUND);
             int step = random.nextInt(PROGRESSION_STEP_UPPER_BOUND) + 1;
-            int correctAnswer = 0;
 
-            StringBuilder sb = new StringBuilder("Question:");
-
-            for (int j = 0; j < length; j++) {
-                sb.append(" ");
-
-                if (j > 0) {
-                    element += step;
-                }
-
-                if (j == position) {
-                    sb.append("..");
-                    correctAnswer = element;
-                } else {
-                    sb.append(element);
-                }
-            }
-
-            questionsAnswers[i][0] = sb.toString();
-            questionsAnswers[i][1] = String.valueOf(correctAnswer);
+            String[] progression = makeProgression(first, step, length);
+            questionsAnswers[i][0] = String.join(" ", progression);
+            questionsAnswers[i][1] = progression[hiddenIndex];
         }
 
         Engine.run(TASK, questionsAnswers);
+    }
+
+    private static String[] makeProgression(int first, int step, int length) {
+        String[] progression = new String[length];
+        progression[0] = String.valueOf(first);
+
+        for (int i = 1; i < length; i++) {
+            progression[i] = String.valueOf(Integer.parseInt(progression[i - 1]) + step);
+        }
+
+        return progression;
     }
 }
