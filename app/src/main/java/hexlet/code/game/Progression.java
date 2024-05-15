@@ -23,8 +23,9 @@ public class Progression {
             int step = random.nextInt(PROGRESSION_STEP_UPPER_BOUND) + 1;
 
             String[] progression = makeProgression(first, step, length);
-            questionsAnswers[i][0] = String.join(" ", progression);
             questionsAnswers[i][1] = progression[hiddenIndex];
+            progression[hiddenIndex] = "..";
+            questionsAnswers[i][0] = String.join(" ", progression);
         }
 
         Engine.run(TASK, questionsAnswers);
