@@ -6,18 +6,14 @@ import static java.lang.System.out;
 
 public class Engine {
     public static final int ROUNDS = 3;
-    private static String playerName;
-    private static int round;
-    private static Scanner sc;
-
-    static {
-        sc = new Scanner(System.in);
-        round = 0;
-    }
 
     public static void run(String task, String[][] questionsAnswers) {
-        greet();
-        out.println(task);
+        Scanner sc = new Scanner(System.in);
+        out.println("Welcome to the Brain Games!\nMay I have your name?");
+        String playerName = sc.nextLine();
+        out.println("Hello, " + playerName + "!\n" + task);
+        int round = 0;
+
         while (round < ROUNDS) {
             out.println("Question: " + questionsAnswers[round][0]);
             String answer = sc.nextLine();
@@ -35,21 +31,6 @@ public class Engine {
                         + "'.\nLet's try again, " + playerName + "!");
                 break;
             }
-        }
-    }
-
-    public static void greet() {
-        System.out.println("Welcome to the Brain Games!\nMay I have your name?");
-        playerName = sc.nextLine();
-        System.out.println("Hello, " + playerName + "!");
-    }
-
-    public static int getInt() {
-        try {
-            return Integer.parseInt(sc.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("Please enter a valid number");
-            return getInt();
         }
     }
 }
