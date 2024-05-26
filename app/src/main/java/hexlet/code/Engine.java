@@ -12,25 +12,21 @@ public class Engine {
         out.println("Welcome to the Brain Games!\nMay I have your name?");
         String playerName = sc.nextLine();
         out.println("Hello, " + playerName + "!\n" + task);
-        int round = 0;
 
-        while (round < ROUNDS) {
-            out.println("Question: " + questionsAnswers[round][0]);
+        for (String[] questionAnswer : questionsAnswers) {
+            out.println("Question: " + questionAnswer[0]);
             String answer = sc.nextLine();
             out.println("Your answer: " + answer);
 
-            if (answer.equals(questionsAnswers[round][1])) {
+            if (answer.equals(questionAnswer[1])) {
                 out.println("Correct!");
-                round++;
-
-                if (round == ROUNDS) {
-                    out.println("Congratulations, " + playerName + "!");
-                }
             } else {
-                out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + questionsAnswers[round][1]
+                out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + questionAnswer[1]
                         + "'.\nLet's try again, " + playerName + "!");
-                break;
+                return;
             }
         }
+
+        out.println("Congratulations, " + playerName + "!");
     }
 }
