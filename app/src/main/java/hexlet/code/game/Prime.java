@@ -15,14 +15,19 @@ public class Prime {
         for (int i = 0; i < questionsAnswers.length; i++) {
             int question = RandomUtils.generateNumber(2, PRIME_UPPER_BOUND);
             questionsAnswers[i][0] = String.valueOf(question);
-            questionsAnswers[i][1] = checkNumberIsPrime(question) ? "yes" : "no";
+            questionsAnswers[i][1] = isPrime(question) ? "yes" : "no";
         }
 
         Engine.run(TASK, questionsAnswers);
     }
 
-    private static boolean checkNumberIsPrime(int number) {
+    private static boolean isPrime(int number) {
         for (int j = number - 1; j > 1; j--) {
+            if (number <= 0) {
+                throw new IllegalArgumentException("Incorrect number: "
+                        + number + ". Only positive integers are allowed.");
+            }
+
             if (number % j == 0) {
                 return false;
             }
