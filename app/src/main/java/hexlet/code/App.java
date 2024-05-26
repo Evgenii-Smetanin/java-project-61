@@ -29,7 +29,7 @@ public class App {
                 + PRIME + " - Prime\n"
                 + EXIT + " - Exit");
 
-        int gameNumber = getInt();
+        int gameNumber = Integer.parseInt(sc.nextLine());
         System.out.println("Your choice: " + gameNumber);
 
         switch (gameNumber) {
@@ -58,14 +58,5 @@ public class App {
         }
 
         sc.close();
-    }
-
-    public static int getInt() {
-        try {
-            return Integer.parseInt(sc.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("Please enter a valid number");
-            return getInt();
-        }
     }
 }
