@@ -22,12 +22,11 @@ public class Prime {
     }
 
     private static boolean isPrime(int number) {
-        for (int j = number - 1; j > 1; j--) {
-            if (number <= 0) {
-                throw new IllegalArgumentException("Incorrect number: "
-                        + number + ". Only positive integers are allowed.");
-            }
+        if (number <= 0) {
+            return false;
+        }
 
+        for (int j = number - 1; j > 1; j--) {
             if (number % j == 0) {
                 return false;
             }

@@ -18,7 +18,7 @@ public class App {
     private static final int PRIME = 6;
     private static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) throws IncorrectGameNumberException {
+    public static void main(String[] args) throws IllegalArgumentException {
 
         System.out.println("Please enter the game number and press Enter.\n"
                 + GREET + " - Greet\n"
@@ -54,7 +54,7 @@ public class App {
                 Prime.run();
                 break;
             default:
-                throw new IncorrectGameNumberException("Unknown game number: " + gameNumber);
+                throw new IllegalArgumentException("Unknown game number: " + gameNumber);
         }
 
         sc.close();
